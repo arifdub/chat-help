@@ -79,30 +79,6 @@ function gotAnswer(){
 		setInterval(function()
     { checkAnswer(); }, 2000);
     
-    
-
-
-
-	
-
-
-    
-
-
-    /*function keypress(){
-		$("#msg").keypress(function(Event){
-			if (event.which == 13){
-				event.preventDefault();
-				function askquestion();
-				
-				$("#msg").val('');
-			}
-		});
-	}
-*/
-
-
-//document ready 
 </script>
 
 <body>
