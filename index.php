@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html>
-
+<meta charset="utf-8">  
 <head>  
 	
-	
-	
-	
-	
-	<meta charset="utf-8">  
 	<title>Live chat help</title>  
+	
+	
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="jquery/jquery-ui.theme.min.css">
@@ -21,6 +18,7 @@
 
 <script>
 var currentID = 0;
+
 function gotAnswer(){
 		$.ajax({
 			method: 'post',
@@ -79,8 +77,17 @@ function gotAnswer(){
 		setInterval(function()
     { checkAnswer(); }, 2000);
     
+    function timeZone(){
+	    var ZoneName = $("#zone").val();
+	    alert(ZoneName);
+	    
+	    
+	
+    }
+    
+    
 </script>
-
+</head>
 <body>
 <div id="box">
 		<div id="timezone">
@@ -88,7 +95,7 @@ function gotAnswer(){
 		 		<div class="form-group">	
 			 	 			
 			 <label for="zone">	SELECT TIME ZONE </label>
-			<select class="form-control" name="zone" id="zone">
+	<select class="form-control" name="zone" id="zone" onchange="timeZone()">
 				  <option value="Europe/Dublin">Europe/Dublin</option>
 				  <option value="Europe/Andorra">Europe/Andorra</option>
 				  <option value="Asia/Dubai">Asia/Dubai</option>

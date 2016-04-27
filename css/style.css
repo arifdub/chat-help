@@ -1,0 +1,43 @@
+input[type=text]#msg{
+		width: 380px;
+		padding: 15px 15px !important;
+		margin: 10px 5px 10px 10px;
+		border-radius: 5px;
+		box-sizing: border-box;
+		border: 2px solid #ccc;
+		border-radius: 4px;
+		background-color: #f8f8f8;
+		height: 45px;
+	}
+	#ask {
+		padding: 10px;
+		margin: 10px 10px 10px 0px;
+		background-color: green;
+		color: white;
+		float: right;
+		width: 80px;
+		display: block;
+	}
+	#chatbox{
+		height: 400px;
+		width: 500px;
+		overflow: scroll;
+		
+	}
+	input#name{
+		width: 100%;
+		box-sizing: border-box;
+	}
+	#box{
+		
+		width: 500px;
+		border: 2px dotted black;
+		margin: 10px auto 0 auto;
+		padding: 10px;
+		
+		
+		
+	}
+	#zoneDisplay {
+		border-bottom: 1px dotted grey;
+	}
