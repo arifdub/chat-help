@@ -60,12 +60,13 @@ function gotAnswer(){
 			
 		
 		var varMsg= $("#msg").val();
+		var varName= $("#name").val();
 			
 			
 			$.ajax({
 				method: "post",
 				url: "ajax.php",
-				data: {type:"submitquestion" , msg:varMsg}
+				data: {type:"submitquestion" , msg:varMsg, name:varName}
 					   
 			})
 			.done(function(data){
@@ -141,13 +142,19 @@ function gotAnswer(){
 			<div id="chatbox"></div>
 	
 	<div class="input-group">
-		<input class="form-control" type="text" name="msg" 
-		id="msg" placeholder="Enter your Question here">  
+		
+
 	
-		<span class="input-group-btn">
-			<button class="btn btn-success" type="button" id="ask"
+		<input class="form-control" type="text" name="name" 
+		id="name" placeholder="Your Name">  
+		<input class="form-control" type="text" name="msg" 
+		id="msg" placeholder="Enter your Question here"> 
+		<button class="btn btn-success" type="button" id="ask"
 			onclick="askquestion();">Send</button>
-		</span>
+	</div>
+		
+			
+		
 	</div>	
 </div>
 <div id="waitdialog" title="Chat Help">Thanks for Question please wait for answer from  Members team +'varMsg' </div>

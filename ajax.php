@@ -39,6 +39,7 @@
     
     	function submitNewQuestion(){ 
 	 	$question =$_POST['msg'];
+	 	$name =$_POST['name'];
     	
     	
     	try {
@@ -53,11 +54,12 @@
 
 	    	
     
-		$sql=  "INSERT INTO iwa2016 (question) 
-		VALUES (:question)";
+		$sql=  "INSERT INTO iwa2016 (name, question) 
+		VALUES (:name, :question)";
 	    $q = $conn->prepare($sql);
 	   
 	    $q->bindValue(':question',  $question);
+	    $q->bindValue(':name',  $name);
 	    $q->execute();
 	   
 	   echo $conn ->lastInsertId();

@@ -1,5 +1,5 @@
 input[type=text]#msg{
-		width: 380px;
+		width: 290px;
 		padding: 15px 15px !important;
 		margin: 10px 5px 10px 10px;
 		border-radius: 5px;
@@ -9,18 +9,29 @@ input[type=text]#msg{
 		background-color: #f8f8f8;
 		height: 45px;
 	}
+	
+	input[type=text]#name{
+		width: 150px;
+		padding: 15px 15px !important;
+		margin: 10px 5px 10px 10px;
+		border-radius: 5px;
+		box-sizing: border-box;
+		border: 2px solid #ccc;
+		border-radius: 4px;
+		background-color: #f8f8f8;
+		height: 45px;
+}
 	#ask {
 		padding: 10px;
-		margin: 10px 10px 10px 0px;
+		margin: 10px;
 		background-color: green;
 		color: white;
-		float: right;
-		width: 80px;
+		width: 455px;
 		display: block;
 	}
 	#chatbox{
-		height: 400px;
-		width: 500px;
+		height: 350px;
+		width: 600px;
 		overflow: scroll;
 		padding: 5px;
 		margin-top: 5px;
