@@ -67,8 +67,8 @@ function gotAnswer(){
 			})
 			.done(function(data){
 				currentID = data;
-				
-				$("#waitdialog").dialog();
+			 $("#waitdialog").dialog();
+			 
 	//$("#chatbox").scrollTop($("#chatbox").prop("scrollHeight"));	
 				
 			});
@@ -77,6 +77,8 @@ function gotAnswer(){
 		
 		setInterval(function()
     { checkAnswer(); }, 2000);
+    
+   
     
  //function to get time and date from api (timezoneDB.com)    
     function timeZone(){

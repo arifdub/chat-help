@@ -29,7 +29,8 @@
 	    $q->execute();
 	    
 	    $row = $q ->fetch(PDO::FETCH_ASSOC);
-	    echo $row['answer'];
+	    echo "<span style='color:blue'>Member Support Team : </span>" 
+	    .$row['answer'];
 		
 	}	
   
