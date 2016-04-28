@@ -79,7 +79,13 @@ function gotAnswer(){
     
     function timeZone(){
 	    var ZoneName = $("#zone").val();
-	    alert(ZoneName);
+	    $.ajax({
+		    method: "POST",
+		    url: "zoneapi.php",
+		    data: {zone:ZoneName}
+	    }).done(function(data){
+		   $("#zoneDisplay").html(data)
+	    });
 	    
 	    
 	
