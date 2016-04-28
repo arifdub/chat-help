@@ -27,7 +27,9 @@ function gotAnswer(){
 		})
 		.done(function(data){			
 			$("#chatbox").html(data);
-			$("#waitdialog").dialog('close');
+			
+			
+			
 			
 		});
 		
@@ -47,6 +49,7 @@ function gotAnswer(){
 					
 				
 			gotAnswer();
+			
 		}
 		});
 	}
@@ -67,8 +70,9 @@ function gotAnswer(){
 			})
 			.done(function(data){
 				currentID = data;
-			 $("#waitdialog").dialog();
-			 
+				alert("Your Question as been asked please wait :" +varMsg);
+				$("#msg").val('');
+				
 	//$("#chatbox").scrollTop($("#chatbox").prop("scrollHeight"));	
 				
 			});
@@ -82,6 +86,7 @@ function gotAnswer(){
 	   $.ajax({
 		   method: "get",
 		   url: "ajax.php",
+		   
 		   datatype: 'html',
 		   success: function(question){
 			   $("#chatbox").html(question);
@@ -145,7 +150,7 @@ function gotAnswer(){
 		</span>
 	</div>	
 </div>
-<div id="waitdialog" title="Chat Help">Thanks for Question please wait for answer from  Members team</div>
+<div id="waitdialog" title="Chat Help">Thanks for Question please wait for answer from  Members team +'varMsg' </div>
 <script>
 	$("#waitdialog").hide();
 </script>

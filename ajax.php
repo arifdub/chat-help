@@ -32,7 +32,7 @@
 	    if ($row['status'] == '1'){
 	    echo "<span style='color:blue'>Member Support Team : </span>" 
 	    .$row['answer'];
-		}
+		} 
 	}	
   
     
