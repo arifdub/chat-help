@@ -30,6 +30,7 @@
 	    
 	    $row = $q ->fetch(PDO::FETCH_ASSOC);
 	    if ($row['status'] == '1'){
+		    echo "<span style='color:red'>". $row['name'] . "</span> : " . $row['question'] ."<br>";
 	    echo "<span style='color:blue'>Member Support Team : </span>" 
 	    .$row['answer'];
 		} 
