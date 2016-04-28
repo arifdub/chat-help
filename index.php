@@ -48,7 +48,9 @@ function gotAnswer(){
 				}else {
 					
 				
-			gotAnswer();
+			 gotAnswer();
+			 
+			
 			
 		}
 		});
@@ -83,18 +85,7 @@ function gotAnswer(){
 		setInterval(function()
     { checkAnswer(); }, 2000);
     
-   function QuestionDisplay(){
-	   $.ajax({
-		   method: "get",
-		   url: "ajax.php",
-		   
-		   datatype: 'html',
-		   success: function(question){
-			   $("#chatbox").html(question);
-		   }
-	   })
-   }
-    
+   
  //function to get time and date from api (timezoneDB.com)    
     function timeZone(){
 	    var ZoneName = $("#zone").val();
