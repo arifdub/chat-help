@@ -104,10 +104,11 @@ function gotAnswer(){
 <body>
 <div id="box">
 		<div id="timezone">
+			<h4 align="center" style="color:green">Welcome to Support Center </h4>
 			<form>
 		 		<div class="form-group">	
 			 	 			
-			 <label for="zone">	SELECT TIME ZONE </label>
+			 	SELECT TIME ZONE
 	<select class="form-control" name="zone" id="zone" onchange="timeZone()">
 				  <option value="Europe/Dublin">Europe/Dublin</option>
 				  <option value="Europe/Andorra">Europe/Andorra</option>

@@ -30,11 +30,11 @@ input[type=text]#msg{
 		display: block;
 	}
 	#chatbox{
-		height: 350px;
+		height: 300px;
 		width: 600px;
 		overflow: scroll;
 		padding: 5px;
-		margin-top: 5px;
+		
 		
 	}
 	input#name{
@@ -44,7 +44,7 @@ input[type=text]#msg{
 	#box{
 		
 		width: 500px;
-		border: 2px dotted black;
+		border: 2px solid black;
 		margin: 10px auto 0 auto;
 		padding: 10px;
 		
