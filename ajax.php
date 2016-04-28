@@ -22,29 +22,20 @@
     } catch(PDOException $e) {echo $e;} 
 
 		$id = $_POST['id'];
-		
-		
-	    		
-		$sql=  "select * from iwa2016 where id= :currentID";
+		$sql=  "select answer from iwa2016 where id= :currentID";
 	    
 	    $q = $conn->prepare($sql);
 	    $q ->bindValue(':currentID', $id);
 	    $q->execute();
 	    
 	    $row = $q ->fetch(PDO::FETCH_ASSOC);
-	    echo $row['question'];
-	    
-	    
-	    
+	    echo $row['answer'];
 		
 	}	
   
     
     	function submitNewQuestion(){ 
-	    	
-	    	
-	    	
-    	$question =$_POST['msg'];
+	 	$question =$_POST['msg'];
     	
     	
     	try {
@@ -53,7 +44,7 @@
         $user = 'root';
         $pass = 'doa24710';
         # MySQL with PDO_MYSQL
-        $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, 		$pass);
+        $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
     } catch(PDOException $e) {echo $e;} 
 
 
@@ -79,7 +70,7 @@
         $user = 'root';
         $pass = 'doa24710';
         # MySQL with PDO_MYSQL
-        $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, 		$pass);
+        $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
     } catch(PDOException $e) {echo $e;} 
 
 		$sql=  "select status from iwa2016 where id= :currentID;";

@@ -22,6 +22,8 @@ input[type=text]#msg{
 		height: 400px;
 		width: 500px;
 		overflow: scroll;
+		padding: 5px;
+		margin-top: 5px;
 		
 	}
 	input#name{

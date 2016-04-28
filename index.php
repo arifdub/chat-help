@@ -25,9 +25,9 @@ function gotAnswer(){
 			url: 'ajax.php',
 			data: {type:"gotanswer", id:currentID}
 		})
-		.done(function(data){
-			
+		.done(function(data){			
 			$("#chatbox").html(data);
+			$("#waitdialog").dialog('close');
 			
 		});
 		
@@ -74,9 +74,11 @@ function gotAnswer(){
 			});
 	
 		}
+		
 		setInterval(function()
     { checkAnswer(); }, 2000);
     
+ //function to get time and date from api (timezoneDB.com)    
     function timeZone(){
 	    var ZoneName = $("#zone").val();
 	    $.ajax({
@@ -86,10 +88,7 @@ function gotAnswer(){
 	    }).done(function(data){
 		   $("#zoneDisplay").html(data)
 	    });
-	    
-	    
-	
-    }
+   }
     
     
 </script>
@@ -135,10 +134,10 @@ function gotAnswer(){
 		</span>
 	</div>	
 </div>
-<div id="waitdialog" title="Chat Help">Wait please</div>
+<div id="waitdialog" title="Chat Help">Thanks for Question please wait for answer from  Members team</div>
 <script>
 	$("#waitdialog").hide();
-	</script>
+</script>
 </body>
 </html>
     
