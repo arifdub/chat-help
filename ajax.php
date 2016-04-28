@@ -22,16 +22,17 @@
     } catch(PDOException $e) {echo $e;} 
 
 		$id = $_POST['id'];
-		$sql=  "select answer from iwa2016 where id= :currentID";
+		$sql=  "select * from iwa2016 where id= :currentID";
 	    
 	    $q = $conn->prepare($sql);
 	    $q ->bindValue(':currentID', $id);
 	    $q->execute();
 	    
 	    $row = $q ->fetch(PDO::FETCH_ASSOC);
+	    if ($row['status'] == '1'){
 	    echo "<span style='color:blue'>Member Support Team : </span>" 
 	    .$row['answer'];
-		
+		}
 	}	
   
     
