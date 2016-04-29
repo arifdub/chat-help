@@ -19,20 +19,16 @@
 <script>
 var currentID = 0;
 
-function gotAnswer(){
+	function gotAnswer(){
 		$.ajax({
 			method: 'post',
 			url: 'ajax.php',
-			data: {type:"gotanswer", id:currentID}
+			data: {type:"gotanswer", id:currentID},
+			success: function(data){
+				$("#chatbox").html(data);
+			}
 		})
-		.done(function(data){			
-			$("#chatbox").html(data);
-			
-			
-			
-			
-		});
-		
+
 	}
 	
 	function checkAnswer(){
@@ -40,48 +36,35 @@ function gotAnswer(){
 		$.ajax({
 			method:'post',
 			url: 'ajax.php',
-			data: {type: "statuscheck", id:currentID}
+			data: {type: "statuscheck", id:currentID},
+			success: function(data){
+				if(data == '1'){
+				 gotAnswer();
+				 }
+			}
+		
 		})
-		.done(function(data){
-			if(data == '0'){
-				
-				}else {
-					
-				
-			 gotAnswer();
-			 
-			
-			
-		}
-		});
+
 	}
 	
 	
 	function askquestion(){
-		
-			
-		
 		var varMsg= $("#msg").val();
 		var varName= $("#name").val();
-			
 			
 			$.ajax({
 				method: "post",
 				url: "ajax.php",
-				data: {type:"submitquestion" , msg:varMsg, name:varName}
+				data: {type:"submitquestion" , msg:varMsg, name:varName},
+				success: function(data){
+					alert(data);
+				currentID = data;
+				$("#msg").val('');
+				}
 					   
 			})
-			.done(function(data){
-				currentID = data;
-				alert("Your Question as been asked please wait :" +varMsg);
-				$("#msg").val('');
-				
-	//$("#chatbox").scrollTop($("#chatbox").prop("scrollHeight"));	
-				
-			});
-	
-		}
-		
+			
+	}
 		setInterval(function()
     { checkAnswer(); }, 2000);
     
@@ -92,11 +75,14 @@ function gotAnswer(){
 	    $.ajax({
 		    method: "POST",
 		    url: "zoneapi.php",
-		    data: {zone:ZoneName}
-	    }).done(function(data){
-		   $("#zoneDisplay").html(data)
-	    });
-   }
+		    data: {zone:ZoneName},
+		    success: function(data){
+			   $("#zoneDisplay").html(data)
+		    }
+	    })
+		  
+	   
+   	}
     
     
 </script>

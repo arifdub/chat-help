@@ -9,6 +9,9 @@
 	}else if ($type == 'gotanswer'){
 		gotanswer();
 	}
+	
+	
+	
 	function gotanswer(){
 		
 		
