@@ -9,8 +9,33 @@
 	}else if ($type == 'gotanswer'){
 		gotanswer();
 	}
+	else if ($type == 'getquestion'){
+		getquestion();
+	}
 	
-	
+	function getquestion(){
+		
+		$id = $_POST['id'];
+    	try {
+        $host = 'localhost';
+        $dbname = 'test';
+        $user = 'root';
+        $pass = 'doa24710';
+        # MySQL with PDO_MYSQL
+        $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, 		$pass);
+    } catch(PDOException $e) {echo $e;} 
+
+		
+		$sql=  "select * from iwa2016 order by id desc";
+	    
+	    $q = $conn->prepare($sql);
+	    
+	    $q->execute();
+	    
+	    $row = $q ->fetch(PDO::FETCH_ASSOC);
+	    echo "<span style='color:red'>".$row['name']. ": </span>" 
+	    .$row['question'] ."<br>";
+	}
 	
 	function gotanswer(){
 		
@@ -33,10 +58,12 @@
 	    
 	    $row = $q ->fetch(PDO::FETCH_ASSOC);
 	    if ($row['status'] == '1'){
-		    echo "<span style='color:red'>". $row['name'] . "</span> : " . $row['question'] ."<br>";
+		    echo "<span style='color:red'>".$row['name']. ": </span>" 
+	    .$row['question'] ."<br>";
 	    echo "<span style='color:blue'>Member Support Team : </span>" 
 	    .$row['answer'];
 		} 
+		 
 	}	
   
     

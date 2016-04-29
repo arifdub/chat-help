@@ -57,8 +57,8 @@ var currentID = 0;
 				url: "ajax.php",
 				data: {type:"submitquestion" , msg:varMsg, name:varName},
 				success: function(data){
-					alert(data);
 				currentID = data;
+				
 				$("#msg").val('');
 				}
 					   
@@ -83,7 +83,24 @@ var currentID = 0;
 		  
 	   
    	}
-    
+   	
+   	function getquestion(){
+	   	$.ajax({
+		   	method: "post",
+		   	url: "ajax.php",
+		   	data: {type:"getquestion", id:currentID},
+		   	success: function(data){
+			   	$("#chatbox").html(data);
+		   	}
+	   	})
+   	}
+   	
+   	$(function(){
+	   $("#ask").click(function(){
+		   askquestion();
+		   getquestion();
+	   });	
+   	});
     
 </script>
 </head>
@@ -127,8 +144,7 @@ var currentID = 0;
 		id="name" placeholder="Your Name">  
 		<input class="form-control" type="text" name="msg" 
 		id="msg" placeholder="Enter your Question here"> 
-		<button class="btn btn-success" type="button" id="ask"
-			onclick="askquestion();">Send</button>
+		<button class="btn btn-success" type="button" id="ask">Send</button>
 	</div>
 		
 			
