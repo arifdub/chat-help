@@ -15,7 +15,7 @@
 	
 	function getquestion(){
 		
-		$id = $_POST['id'];
+		
     	try {
         $host = 'localhost';
         $dbname = 'test';

@@ -19,6 +19,7 @@
 <script>
 var currentID = 0;
 
+
 	function gotAnswer(){
 		$.ajax({
 			method: 'post',
@@ -88,7 +89,7 @@ var currentID = 0;
 	   	$.ajax({
 		   	method: "post",
 		   	url: "ajax.php",
-		   	data: {type:"getquestion", id:currentID},
+		   	data: {type:"getquestion"},
 		   	success: function(data){
 			   	$("#chatbox").html(data);
 		   	}
