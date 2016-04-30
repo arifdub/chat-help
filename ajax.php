@@ -16,70 +16,58 @@
 	function getquestion(){
 		
 		
-    	try {
-        $host = 'localhost';
-        $dbname = 'test';
-        $user = 'root';
-        $pass = 'doa24710';
-        # MySQL with PDO_MYSQL
-        $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, 		$pass);
-    } catch(PDOException $e) {echo $e;} 
+    	require_once 'dbconnect.php';
 
 		
-		$sql=  "select * from iwa2016 order by id desc";
+		$sql=  "select * ,Date_format(`time`,'%H:%i') as only_time from iwa2016 
+		order by id desc ";
 	    
 	    $q = $conn->prepare($sql);
 	    
 	    $q->execute();
 	    
-	    $row = $q ->fetch(PDO::FETCH_ASSOC);
+	   while($row = $q ->fetch(PDO::FETCH_ASSOC)){
+		   
+	   
+	    
 	    echo "<span style='color:red'>".$row['name']. ": </span>" 
-	    .$row['question'] ."<br>";
+	    .$row['question']. "<span style='float:right'>".$row['only_time']."</span><br>";
+	}
 	}
 	
 	function gotanswer(){
 		
 		
-    	try {
-        $host = 'localhost';
-        $dbname = 'test';
-        $user = 'root';
-        $pass = 'doa24710';
-        # MySQL with PDO_MYSQL
-        $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, 		$pass);
-    } catch(PDOException $e) {echo $e;} 
+    	require_once 'dbconnect.php';
 
 		$id = $_POST['id'];
-		$sql=  "select * from iwa2016 where id= :currentID";
+		$sql=  "select * ,Date_format(`time`,'%H:%i') as only_time from iwa2016 
+		where id= :currentID";
 	    
 	    $q = $conn->prepare($sql);
 	    $q ->bindValue(':currentID', $id);
 	    $q->execute();
 	    
-	    $row = $q ->fetch(PDO::FETCH_ASSOC);
+	    while ($row = $q ->fetch(PDO::FETCH_ASSOC)){
 	    if ($row['status'] == '1'){
-		    echo "<span style='color:red'>".$row['name']. ": </span>" 
-	    .$row['question'] ."<br>";
+		echo "<span style='color:red'>".$row['name']. ": </span>" 
+	    .$row['question'] ."<span style='float:right'>".$row['only_time']."</span><br>";
 	    echo "<span style='color:blue'>Member Support Team : </span>" 
-	    .$row['answer'];
+	    .$row['answer']."<span style='float:right'>".$row['only_time']."</span>";
 		} 
-		 
+		} 
 	}	
   
     
     	function submitNewQuestion(){ 
 	 	$question =$_POST['msg'];
 	 	$name =$_POST['name'];
+	 	
+    	if ($question || $name){
+	    	
     	
     	
-    	try {
-        $host = 'localhost';
-        $dbname = 'test';
-        $user = 'root';
-        $pass = 'doa24710';
-        # MySQL with PDO_MYSQL
-        $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-    } catch(PDOException $e) {echo $e;} 
+    	require_once 'dbconnect.php';
 
 
 	    	
@@ -93,20 +81,14 @@
 	    $q->execute();
 	   
 	   echo $conn ->lastInsertId();
+	   }
   
 }
 
 	function checkstatus(){
 		$id= $_POST['id'];
-    	
-    	try {
-        $host = 'localhost';
-        $dbname = 'test';
-        $user = 'root';
-        $pass = 'doa24710';
-        # MySQL with PDO_MYSQL
-        $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-    } catch(PDOException $e) {echo $e;} 
+		
+    	require_once 'dbconnect.php';
 
 		$sql=  "select status from iwa2016 where id= :currentID;";
 	    

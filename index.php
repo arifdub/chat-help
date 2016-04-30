@@ -16,7 +16,13 @@
   <script src="jquery/jquery.js"></script>
   <script src="jquery/jquery-ui.min.js"></script>
 
-<script>
+
+</head>
+<body>
+	<div id="gotanswer" title="Chat help">Got an Answer</div>
+	<script>
+		
+		
 var currentID = 0;
 
 
@@ -41,12 +47,14 @@ var currentID = 0;
 			success: function(data){
 				if(data == '1'){
 				 gotAnswer();
+				 
 				 }
 			}
 		
 		})
 
 	}
+	
 	
 	
 	function askquestion(){
@@ -102,10 +110,10 @@ var currentID = 0;
 		   getquestion();
 	   });	
    	});
+   	
     
 </script>
-</head>
-<body>
+
 <div id="box">
 		<div id="timezone">
 			<h4 align="center" style="color:green">Welcome to Support Center </h4>
@@ -152,9 +160,9 @@ var currentID = 0;
 		
 	</div>	
 </div>
-<div id="waitdialog" title="Chat Help">Thanks for Question please wait for answer from  Members team +'varMsg' </div>
+
 <script>
-	$("#waitdialog").hide();
+	$("#gotanswer").hide();
 </script>
 </body>
 </html>
