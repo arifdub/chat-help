@@ -50,11 +50,9 @@ var currentID = 0;
 			data: {type: "statuscheck", id:currentID},
 			success: function(data){
 				if(data == '1'){
-				 	gotAnswer();
-				 	
-				 }
-			}
-		
+					gotAnswer();
+				}
+			}	
 		})
 
 	}
@@ -122,7 +120,8 @@ var currentID = 0;
    	});
    	
    	setInterval(function()
-    { checkAnswer(); }, 2000);
+    { checkAnswer();}, 1000);
+    
     
     
 </script>
@@ -135,6 +134,7 @@ var currentID = 0;
 			 	 			
 			 	SELECT TIME ZONE
 	<select class="form-control" name="zone" id="zone" onchange="timeZone();">
+		
 				  <option value="Europe/Dublin">Europe/Dublin</option>
 				  <option value="Europe/Andorra">Europe/Andorra</option>
 				  <option value="Asia/Dubai">Asia/Dubai</option>

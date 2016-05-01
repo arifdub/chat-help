@@ -13,7 +13,7 @@
 	
 		
 		$sql="UPDATE iwa2016 SET answer = :msg, status= 1
-		where id= 520";
+		where answer='0'";
 	    
 	    $q = $conn->prepare($sql);
 		$q->bindValue(':msg',$answer);
