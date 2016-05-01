@@ -134,7 +134,7 @@ var currentID = 0;
 			 	 			
 			 	SELECT TIME ZONE
 	<select class="form-control" name="zone" id="zone" onchange="timeZone();">
-		
+		<option>Please select zone</option>
 				  <option value="Europe/Dublin">Europe/Dublin</option>
 				  <option value="Europe/Andorra">Europe/Andorra</option>
 				  <option value="Asia/Dubai">Asia/Dubai</option>
