@@ -19,8 +19,9 @@
     	require_once 'dbconnect.php';
 
 		
-		$sql=  "select * ,Date_format(`time`,'%H:%i') as only_time from iwa2016 
-		order by id desc ";
+		$sql=  "select * ,Date_format(`time`,'%H:%i') as only_time from iwa2016
+		 
+		order by id desc limit 1 ";
 	    
 	    $q = $conn->prepare($sql);
 	    
@@ -63,9 +64,10 @@
 	 	$question =$_POST['msg'];
 	 	$name =$_POST['name'];
 	 	
-    	if ($question || $name){
+    	if (!$question || !$name){
 	    	
-    	
+    	echo "enter name or message";
+    	}else {
     	
     	require_once 'dbconnect.php';
 

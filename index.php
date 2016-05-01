@@ -19,7 +19,11 @@
 
 </head>
 <body>
-	<div id="gotanswer" title="Chat help">Got an Answer</div>
+	
+		<div id="gotanswer" title="Chat help">Got an Answer</div>
+	
+	<a href="index.php" onclick="openWindow(this.href);this.blur();return false;">Chat</a>
+	
 	<script>
 		
 		
@@ -46,8 +50,8 @@ var currentID = 0;
 			data: {type: "statuscheck", id:currentID},
 			success: function(data){
 				if(data == '1'){
-				 gotAnswer();
-				 
+				 	gotAnswer();
+				 	
 				 }
 			}
 		
@@ -74,24 +78,29 @@ var currentID = 0;
 			})
 			
 	}
-		setInterval(function()
-    { checkAnswer(); }, 2000);
+		
     
    
  //function to get time and date from api (timezoneDB.com)    
     function timeZone(){
-	    var ZoneName = $("#zone").val();
+    var ZoneName = $("#zone").val();
+    
 	    $.ajax({
-		    method: "POST",
-		    url: "zoneapi.php",
-		    data: {zone:ZoneName},
+		    method: "GET",
+		    url: 'http://api.timezonedb.com/?zone={zone}&format=json&key=WTU4LLBZ20OF'
+		    .replace('{zone}', ZoneName),
 		    success: function(data){
-			   $("#zoneDisplay").html(data)
+			 	console.log(data);
+			 var unix=data.timestamp;
+			 var D = new Date(unix*1000).toUTCString();
+			 $("#zoneDisplay").html("<span style='color:blue'>"+ D +"</span>");
+			   
 		    }
+		    
 	    })
 		  
-	   
-   	}
+	    
+}
    	
    	function getquestion(){
 	   	$.ajax({
@@ -108,9 +117,13 @@ var currentID = 0;
 	   $("#ask").click(function(){
 		   askquestion();
 		   getquestion();
+		   
 	   });	
    	});
    	
+   	setInterval(function()
+    { checkAnswer(); }, 2000);
+    
     
 </script>
 
@@ -121,7 +134,7 @@ var currentID = 0;
 		 		<div class="form-group">	
 			 	 			
 			 	SELECT TIME ZONE
-	<select class="form-control" name="zone" id="zone" onchange="timeZone()">
+	<select class="form-control" name="zone" id="zone" onchange="timeZone();">
 				  <option value="Europe/Dublin">Europe/Dublin</option>
 				  <option value="Europe/Andorra">Europe/Andorra</option>
 				  <option value="Asia/Dubai">Asia/Dubai</option>
