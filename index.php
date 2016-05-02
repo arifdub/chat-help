@@ -137,14 +137,21 @@ var currentID = 0;
     { checkStatus();}, 1000);
     
     
-    
+   $(document).ready(function(){
+	  $("#header").click(function(){
+		 $("#chatbody").slideToggle();
+	  }); 
+   });
     
     
 </script>
 
 <div id="box">
+		
+		<div id="header">	<h4 align="center" style="color:white">Welcome to Support Center <button id="minchat" style="float:right">-</button></h4></div>
+		<div id="chatbody">
+		
 		<div id="timezone">
-			<h4 align="center" style="color:green">Welcome to Support Center </h4>
 			<form>
 		 		<div class="form-group">	
 			 	 			
@@ -188,6 +195,7 @@ var currentID = 0;
 			
 		
 	</div>	
+</div>
 </div>
 
 <script>

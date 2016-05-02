@@ -1,7 +1,7 @@
 input[type=text]#msg{
-		width: 290px;
+		width: 220px;
 		padding: 15px 15px !important;
-		margin: 10px 5px 10px 10px;
+		margin: 10px 0px 10px 10px;
 		border-radius: 5px;
 		box-sizing: border-box;
 		border: 2px solid #ccc;
@@ -25,7 +25,7 @@ input[type=text]#msg{
 	input[type=text]#name{
 		width: 150px;
 		padding: 15px 15px !important;
-		margin: 10px 5px 10px 10px;
+		margin: 10px 0px 10px 10px;
 		border-radius: 5px;
 		box-sizing: border-box;
 		border: 2px solid #ccc;
@@ -38,30 +38,43 @@ input[type=text]#msg{
 		margin: 10px;
 		background-color: green;
 		color: white;
-		width: 455px;
+		width: 380px;
 		display: block;
 	}
 	#chatbox{
 		height: 300px;
-		width: 470px;
+		width: 370px;
 		overflow: scroll;
-		padding: 5px;
-		
-		
-	}
-	input#name{
-		width: 100%;
-		box-sizing: border-box;
-	}
-	#box{
-		
-		width: 500px;
-		border: 2px solid black;
-		margin: 10px auto 0 auto;
 		padding: 10px;
 		
 		
-		
+	}
+	
+	#box{
+		position: fixed;
+		bottom: 0px;
+		right: 2px;
+		width: 400px;
+		border: 2px solid skyblue;
+	}
+	#header{
+		cursor: pointer;
+		background-color: skyblue;
+		margin: 0px;
+		padding: 2px;
+	}
+	#zoneDisplay{
+		padding-left: 10px;
+	}
+	#minchat{
+		background-color: skyblue;
+		border: none;
+		height: 10px;
+		color:white;
+		font-size: 30px;
+	}
+	#timezone{
+		padding: 5px;
 	}
 	#zoneDisplay {
 		border-bottom: 1px dotted grey;
