@@ -1,6 +1,6 @@
 <?php
 	 	$answer =$_POST['msg'];
-	 	
+	 	if ($answer){
 	 	
    	try {
         $host = 'localhost';
@@ -18,8 +18,5 @@
 	    $q = $conn->prepare($sql);
 		$q->bindValue(':msg',$answer);
 	    $q->execute();
-	    
-	    
-	    
-	    	   
+	  }
 ?>

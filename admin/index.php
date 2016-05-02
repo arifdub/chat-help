@@ -38,6 +38,9 @@
 			})
 			
 	}
+	setInterval(function(){
+		$("#chatbox").load('getchat.php');
+	}, 1000)
 			
 		
     

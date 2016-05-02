@@ -20,9 +20,7 @@
 </head>
 <body>
 	
-		<div id="gotanswer" title="Chat help">Got an Answer</div>
-	
-	<a href="index.php" onclick="openWindow(this.href);this.blur();return false;">Chat</a>
+		<div id="wait" title="Chat help">Please wait one of our team member will answer your question</div>
 	
 	<script>
 		
@@ -36,13 +34,15 @@ var currentID = 0;
 			url: 'ajax.php',
 			data: {type:"gotanswer", id:currentID},
 			success: function(data){
-				$("#chatbox").html(data);
+			$("#chatbox").html(data);
+			
+				
 			}
 		})
 
 	}
 	
-	function checkAnswer(){
+	function checkStatus(){
 		
 		$.ajax({
 			method:'post',
@@ -51,12 +51,14 @@ var currentID = 0;
 			success: function(data){
 				if(data == '1'){
 					gotAnswer();
+					$("#wait").dialog('close');
+				
 				}
+				
 			}	
 		})
 
 	}
-	
 	
 	
 	function askquestion(){
@@ -66,9 +68,21 @@ var currentID = 0;
 			$.ajax({
 				method: "post",
 				url: "ajax.php",
-				data: {type:"submitquestion" , msg:varMsg, name:varName},
+				data: {type:"submitquestion" , msg:varMsg,
+				name:varName},
 				success: function(data){
 				currentID = data;
+				
+				$("#wait").dialog({
+					modal: true,
+					title: 'Message Sent',
+					width: 400,
+					buttons : {
+					Ok: function() {
+                    $(this).dialog("close"); //closing on Ok 					click
+                	}
+            		},
+				});
 				
 				$("#msg").val('');
 				}
@@ -91,7 +105,7 @@ var currentID = 0;
 			 	console.log(data);
 			 var unix=data.timestamp;
 			 var D = new Date(unix*1000).toUTCString();
-			 $("#zoneDisplay").html("<span style='color:blue'>"+ D +"</span>");
+			 $("#zoneDisplay").html("<span style='color:blue';font-size:30px'>"+ D +"</span>");
 			   
 		    }
 		    
@@ -110,7 +124,7 @@ var currentID = 0;
 		   	}
 	   	})
    	}
-   	
+   
    	$(function(){
 	   $("#ask").click(function(){
 		   askquestion();
@@ -120,7 +134,9 @@ var currentID = 0;
    	});
    	
    	setInterval(function()
-    { checkAnswer();}, 1000);
+    { checkStatus();}, 1000);
+    
+    
     
     
     
@@ -175,7 +191,7 @@ var currentID = 0;
 </div>
 
 <script>
-	$("#gotanswer").hide();
+	$("#wait").hide();
 </script>
 </body>
 </html>
