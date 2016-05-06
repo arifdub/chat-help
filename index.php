@@ -21,6 +21,7 @@
 <body>
 	
 		<div id="wait" title="Chat help">Please wait one of our team member will answer your question</div>
+		<div id="gotanswer" title="Chat help">You have got an Answer</div>
 	
 	<script>
 		
@@ -34,7 +35,7 @@ var currentID = 0;
 			url: 'ajax.php',
 			data: {type:"gotanswer", id:currentID},
 			success: function(data){
-			$("#chatbox").html(data);
+			
 			
 				
 			}
@@ -90,8 +91,16 @@ var currentID = 0;
 			})
 			
 	}
+	$(function(){
+	
+	$("#msg").keypress(function(e){
+		if (e.which == 13){
+			
+			askquestion();
+		}
+	});
 		
-    
+   }); 
    
  //function to get time and date from api (timezoneDB.com)    
     function timeZone(){
@@ -104,8 +113,8 @@ var currentID = 0;
 		    success: function(data){
 			 	console.log(data);
 			 var unix=data.timestamp;
-			 var D = new Date(unix*1000).toUTCString();
-			 $("#zoneDisplay").html("<span style='color:blue';font-size:30px'>"+ D +"</span>");
+			 var time = new Date(unix*1000).toUTCString();
+			 $("#zoneDisplay").html("<span style='color:blue';font-size:30px'>"+ time +"</span>");
 			   
 		    }
 		    
@@ -128,19 +137,26 @@ var currentID = 0;
    	$(function(){
 	   $("#ask").click(function(){
 		   askquestion();
-		   getquestion();
+		   
 		   
 	   });	
    	});
    	
    	setInterval(function()
     { checkStatus();}, 1000);
+    setInterval(function()
+    { $("#chatbox").load("admin/getchat.php");}, 3000);
     
-    
+  //minimize chat windows  
    $(document).ready(function(){
 	  $("#header").click(function(){
 		 $("#chatbody").slideToggle();
 	  }); 
+	  // close chat window 
+	  $("#closechat").click(function(){
+		 $("#box").hide();
+	  }); 
+	  
    });
     
     
@@ -148,7 +164,7 @@ var currentID = 0;
 
 <div id="box">
 		
-		<div id="header">	<h4 align="center" style="color:white">Welcome to Support Center <button id="minchat" style="float:right">-</button></h4></div>
+		<div id="header">	<h4 align="center" style="color:white">Welcome to Support Center <span id="closechat">x</span><span id="minchat">-</span></h4></div>
 		<div id="chatbody">
 		
 		<div id="timezone">
@@ -200,6 +216,7 @@ var currentID = 0;
 
 <script>
 	$("#wait").hide();
+	$("#gotanswer").hide();
 </script>
 </body>
 </html>
