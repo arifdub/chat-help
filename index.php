@@ -205,7 +205,7 @@ var currentID = 0;
 		id="name" placeholder="Your Name">  
 		<input class="form-control" type="text" name="msg" 
 		id="msg" placeholder="Enter your Question here"> 
-		<button class="btn btn-success" type="button" id="ask">Send</button>
+		<button class="btn btn-success" type="button" id="ask">Ask Question</button>
 	</div>
 		
 			
