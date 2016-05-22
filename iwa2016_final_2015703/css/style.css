@@ -1,0 +1,92 @@
+input[type=text]#msg{
+		width: 220px;
+		padding: 15px 15px !important;
+		margin: 10px 0px 10px 10px;
+		border-radius: 5px;
+		box-sizing: border-box;
+		border: 2px solid #ccc;
+		border-radius: 0px;
+		background-color: #f8f8f8;
+		height: 45px;
+	}
+	input[type=text]#msg-admin{
+		width: 380px;
+		padding: 15px 15px !important;
+		margin: 10px 5px 10px 10px;
+		border-radius: 0px;
+		box-sizing: border-box;
+		border: 2px solid #ccc;
+		border-radius: 4px;
+		background-color: #f8f8f8;
+		height: 45px;
+	}
+
+	
+	input[type=text]#name{
+		width: 150px;
+		padding: 15px 15px !important;
+		margin: 10px 0px 10px 10px;
+		border-radius: 5px;
+		box-sizing: border-box;
+		border: 2px solid #ccc;
+		border-radius: 4px;
+		background-color: #f8f8f8;
+		height: 45px;
+}
+	#ask {
+		padding: 10px;
+		margin: 10px;
+		background-color: green;
+		color: white;
+		width: 380px;
+		display: block;
+	}
+	#chatbox{
+		height: 300px;
+		width: 370px;
+		overflow: scroll;
+		padding: 10px;
+		
+		
+	}
+	
+	#box{
+		position: fixed;
+		bottom: 0px;
+		right: 2px;
+		width: 400px;
+		border: 2px solid skyblue;
+		border-radius: 10px;
+	}
+	#header{
+		cursor: pointer;
+		background-color: skyblue;
+		margin: 0px;
+		padding: 2px;
+	}
+	#zoneDisplay{
+		padding-left: 10px;
+	}
+	
+	
+	#closechat{
+		float: right;
+		color:white;
+		margin-left: 10px;
+		margin-right: 10px;
+		
+		
+		}
+	#minchat{
+		float: right;
+		color:white;
+		font-size: 20px;
+		}
+				
+	
+	#timezone{
+		padding: 5px;
+	}
+	#zoneDisplay {
+		border-bottom: 1px dotted grey;
+	}
